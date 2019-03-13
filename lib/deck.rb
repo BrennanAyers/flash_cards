@@ -15,6 +15,7 @@ class Deck
       if card.category == category
         matching_cards << card
       end
+    end
     matching_cards
    end
 
