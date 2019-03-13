@@ -19,27 +19,19 @@ class RoundTest < Minitest::Test
   end
 
   def test_it_exists
-
     assert_instance_of Round, @round
-
   end
 
   def test_it_has_a_deck
-
     assert_equal @deck, @round.deck
-
   end
 
   def test_it_starts_with_zero_turns
-
     assert_equal [], @round.turns
-
   end
 
   def test_it_starts_with_the_first_card
-
     assert_equal "What is the capital of Alaska?", @round.current_card.question
-
   end
 
 
