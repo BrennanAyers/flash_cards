@@ -18,7 +18,8 @@ class Round
     if new_turn.correct?
       @number_correct += 1
     end
-    @current_card = @current_card.next
+    @current_card = @deck.cards.drop(1)
+    new_turn
   end
 
   def number_correct_by_category(category)

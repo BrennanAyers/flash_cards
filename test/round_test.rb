@@ -34,5 +34,11 @@ class RoundTest < Minitest::Test
     assert_equal "What is the capital of Alaska?", @round.current_card.question
   end
 
+  def test_it_can_take_a_turn
+    new_turn = @round.take_turn("Juneau")
+
+    assert_instance_of Turn, new_turn
+  end
+
 
 end
