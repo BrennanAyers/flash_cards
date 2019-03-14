@@ -52,4 +52,10 @@ class RoundTest < Minitest::Test
     assert_equal 1, @round.turns.length
     assert_equal "Juneau", @round.turns.first.guess
   end
+
+  def test_it_knows_one_guess_is_correct
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal 1, @round.number_correct
+  end
 end
