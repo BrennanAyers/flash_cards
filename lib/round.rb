@@ -1,4 +1,4 @@
-require '../lib/turn'
+require_relative '../lib/turn'
 
 class Round
   attr_reader :deck, :turns, :current_card, :number_correct
@@ -49,5 +49,22 @@ class Round
     else
       correct / category_turns * 100
     end
+  end
+
+  def start
+    current_round = 1
+    deck_size = @deck.cards.length + 1
+    puts "Welcome! You're playing with #{deck_size} cards."
+    puts "-" * 20
+    until current_round > deck_size
+      puts "This is card #{current_round} out of #{deck_size}."
+      puts "Question: #{@current_card.question}"
+      current_guess = gets.chomp
+      current_turn = take_turn(current_guess)
+      puts current_turn.feedback
+      current_round += 1
+    end
+    puts "Game Over!"
+    puts "You had #{@number_correct} correct guesses out of #{deck_size} for a total score of #{percent_correct.to_i}%."
   end
 end

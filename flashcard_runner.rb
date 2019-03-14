@@ -18,7 +18,8 @@ flashcard_round.start
 ## Game Flow
 # All listed comments are output/input to the console
 
-# Welcome
+# Welcome: Number of cards in deck
+#------------------
 
 # Card 1/4
 # Question
