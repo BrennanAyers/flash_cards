@@ -46,4 +46,10 @@ class RoundTest < Minitest::Test
     assert new_turn.correct?
   end
 
+  def test_it_can_hold_turns_in_memory
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal 1, @round.turns.length
+    assert_equal "Juneau", @round.turns.first.guess
+  end
 end
