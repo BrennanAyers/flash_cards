@@ -78,4 +78,11 @@ class RoundTest < Minitest::Test
 
     assert_equal "Incorrect.", @round.turns.last.feedback
   end
+
+  def test_it_tracks_correct_guesses_accurately
+    new_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+
+    assert_equal 1, @round.number_correct
+  end
 end
