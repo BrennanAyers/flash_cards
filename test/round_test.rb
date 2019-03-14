@@ -108,4 +108,11 @@ class RoundTest < Minitest::Test
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
     assert_equal 0.0, @round.percent_correct_by_category(:STEM)
   end
+
+  def test_it_is_on_the_third_card_after_two_turns
+    new_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+
+    assert_equal "Describe in words the exact direction that is 697.5° clockwise from due north?", @round.current_card.question
+  end
 end
