@@ -107,6 +107,7 @@ class RoundTest < Minitest::Test
 
     assert_equal 100.0, @round.percent_correct_by_category(:Geography)
     assert_equal 0.0, @round.percent_correct_by_category(:STEM)
+    assert_equal "No guesses in that category.", @round.percent_correct_by_category("Pop Culture")
   end
 
   def test_it_is_on_the_third_card_after_two_turns

@@ -44,6 +44,10 @@ class Round
       end
     end
     correct = number_correct_by_category(category)
-    correct / category_turns * 100
+    if category_turns == 0
+      "No guesses in that category."
+    else
+      correct / category_turns * 100
+    end
   end
 end
