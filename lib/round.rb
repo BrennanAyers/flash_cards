@@ -24,10 +24,13 @@ class Round
   def number_correct_by_category(category)
     correct = 0
     @turns.each do |turn|
-      if turn.correct?
-        correct += 1
+      if turn.card.category == category
+        if turn.correct?
+          correct += 1
+        end
       end
     end
+    correct
   end
 
 end
