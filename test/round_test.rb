@@ -64,4 +64,11 @@ class RoundTest < Minitest::Test
 
     assert_equal "The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @round.current_card.question
   end
+
+  def test_it_counts_a_second_turn_correctly
+    new_turn = @round.take_turn("Juneau")
+    second_turn = @round.take_turn("Venus")
+
+    assert_equal 2, @round.turns.count
+  end
 end
