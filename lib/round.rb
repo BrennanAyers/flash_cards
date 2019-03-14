@@ -6,7 +6,7 @@ class Round
   def initialize(deck)
     @deck = deck
     @turns = []
-    @current_card = @deck.cards[0]
+    @current_card = @deck.cards.slice!(0)
     @number_correct = 0
     @percent_correct = @number_correct / @deck.cards.length.to_f
   end
@@ -17,7 +17,7 @@ class Round
     if new_turn.correct?
       @number_correct += 1
     end
-    @current_card = @deck.cards.drop(1)
+    @current_card = @deck.cards.slice!(0)
     new_turn
   end
 
