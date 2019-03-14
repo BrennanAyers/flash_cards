@@ -58,4 +58,10 @@ class RoundTest < Minitest::Test
 
     assert_equal 1, @round.number_correct
   end
+
+  def test_it_progresses_to_next_card_after_one_turn
+    new_turn = @round.take_turn("Juneau")
+
+    assert_equal "The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", @round.current_card.question
+  end
 end
