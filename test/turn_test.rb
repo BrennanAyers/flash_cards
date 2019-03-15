@@ -34,6 +34,21 @@ class TurnTest < Minitest::Test
     assert turn.correct?
   end
 
+  def test_it_does_not_mark_a_guess_incorrect_because_of_case
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("juneau", card)
+
+    assert turn.correct?
+  end
+
+  def test_it_does_not_modify_the_guess_after_using_correct
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    turn = Turn.new("juneau", card)
+
+    turn.correct?
+    assert_equal "juneau", turn.guess
+  end
+
   def test_it_can_provide_feedback
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
