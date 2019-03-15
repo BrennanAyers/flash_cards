@@ -54,9 +54,11 @@ class Round
   def start
     current_round = 1
     deck_size = @deck.cards.length + 1
+    categories_array = []
     puts "Welcome! You're playing with #{deck_size} cards."
     puts "-" * 20
     until current_round > deck_size
+      categories_array << @current_card.category
       puts "This is card #{current_round} out of #{deck_size}."
       puts "Question: #{@current_card.question}"
       current_guess = gets.chomp
@@ -64,7 +66,10 @@ class Round
       puts current_turn.feedback
       current_round += 1
     end
-    puts "Game Over!"
+    puts "****** Game Over! ******"
     puts "You had #{@number_correct} correct guesses out of #{deck_size} for a total score of #{percent_correct.to_i}%."
+    categories_array.uniq.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category)}% correct"
+    end
   end
 end
