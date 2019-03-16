@@ -19,4 +19,12 @@ class Deck
     matching_cards
    end
 
+   # def categories_list
+   #   categories_array = []
+   #   @cards.each do |card|
+   #     categories_array << card.category
+   #   end
+   #   categories_array
+   # end
+
 end
