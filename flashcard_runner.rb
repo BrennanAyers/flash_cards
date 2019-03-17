@@ -10,7 +10,7 @@ require './lib/card_generator'
 #
 # flashcard_deck = Deck.new([card_1, card_2, card_3, card_4])
 
-generator = CardGenerator.new('./lib/cards.txt')
+generator = CardGenerator.new('cards.txt')
 
 flashcard_deck = Deck.new(generator.cards)
 

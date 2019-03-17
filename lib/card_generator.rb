@@ -3,11 +3,11 @@ require_relative 'card'
 class CardGenerator
   attr_reader :cards
 
-  def initialize(file_path)
-    @file_path = file_path
+  def initialize(filename)
+    @filename = "./lib/#{filename}"
     @cards = []
 
-    File.foreach(@file_path) do |line|
+    File.foreach(@filename) do |line|
       question = line.split(",")[0]
       answer = line.split(",")[1]
       category = line.rstrip.split(",")[2]
@@ -16,7 +16,7 @@ class CardGenerator
   end
 
   def check_file_path
-    "The file path used for this set of cards is: #{@file_path}"
+    "The file path used for this set of cards is: #{@filename}"
   end
 
 end
