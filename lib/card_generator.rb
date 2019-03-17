@@ -1,20 +1,17 @@
-require_relative 'deck'
 require_relative 'card'
 
 class CardGenerator
-  attr_reader :deck
+  attr_reader :cards
 
-  def initialize(file)
-    @file = "./lib/#{file}"
-    @deck = Deck.new
-  end
+  def initialize(file_path)
+    @file_path = file_path
+    @cards = []
 
-  def cards
-    File.foreach(@file) do |line|
+    File.foreach(@file_path) do |line|
       question = line.split(",")[0]
       answer = line.split(",")[1]
       category = line.rstrip.split(",")[2]
-      @deck.cards << Card.new(question, answer, category)
+      @cards << Card.new(question, answer, category)
     end
   end
 
