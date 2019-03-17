@@ -2,7 +2,7 @@ require_relative 'deck'
 require_relative 'card'
 
 class CardGenerator
-  attr_reader
+  attr_reader :deck
 
   def initialize(file)
     @file = "./lib/#{file}"
