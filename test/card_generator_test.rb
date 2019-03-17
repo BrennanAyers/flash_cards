@@ -27,4 +27,8 @@ class CardGeneratorTest < Minitest::Test
     empty_generator = CardGenerator.new('../lib/empty.txt')
     assert_equal [], empty_generator.cards
   end
+
+  def test_it_does_not_have_newline_characters_at_the_end_of_categories
+    refute_equal "STEM\n", @generator.cards[0].category
+  end
 end
