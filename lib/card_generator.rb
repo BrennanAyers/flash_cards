@@ -15,4 +15,8 @@ class CardGenerator
     end
   end
 
+  def check_file_path
+    "The file path used for this set of cards is: #{@file_path}"
+  end
+
 end
