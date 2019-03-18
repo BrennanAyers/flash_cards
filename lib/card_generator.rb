@@ -1,10 +1,11 @@
 require_relative 'card'
+require 'pathname'
 
 class CardGenerator
   attr_reader :cards
 
   def initialize(filename)
-    @filename = "./lib/#{filename}"
+    @filename = Pathname(__FILE__).dirname.parent + "lib/#{filename}"
     @cards = []
 
     File.foreach(@filename) do |line|
