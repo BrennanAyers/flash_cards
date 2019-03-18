@@ -4,7 +4,7 @@ require '../lib/card_generator'
 
 class CardGeneratorTest < Minitest::Test
   def setup
-    @generator = CardGenerator.new('../lib/cards.txt')
+    @generator = CardGenerator.new('cards.txt')
   end
 
   def test_it_exists
@@ -24,7 +24,7 @@ class CardGeneratorTest < Minitest::Test
   end
 
   def test_it_does_not_generate_cards_if_given_empty_file
-    empty_generator = CardGenerator.new('../lib/empty.txt')
+    empty_generator = CardGenerator.new('empty.txt')
     assert_equal [], empty_generator.cards
   end
 
